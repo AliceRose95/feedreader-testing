@@ -50,11 +50,9 @@ $(function() {
         /* Test that ensures the menu element is
          * hidden by default.
          */
-         let menu = document.getElementsByTagName('body')[0];
-         let menuIcon = document.getElementsByClassName("menu-icon-link");
          /* The body class for hiding/showing the menu is .menu-hidden*/
          it('is hidden by default', function() {
-           expect(menu.classList).toContain('menu-hidden');
+           expect($('body').hasClass('menu-hidden')).toBe(true);
          })
 
          /* Test that ensures the menu changes
@@ -66,10 +64,10 @@ $(function() {
           /* Use of jQuery to create the trigger/click function*/
           it('changes visibility on click', function() {
             $('.menu-icon-link').trigger('click');
-            expect(menu.classList).not.toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
             $('.menu-icon-link').trigger('click');
-            expect(menu.classList).toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
           });
 
     });
